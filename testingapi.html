@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Bootstrap Layout</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <style>
+        body {
+      background-color: #111924;
+    }
+
+    .card {
+      background-color: #111924;
+      color: white;
+      border-radius: 10px;
+      border: 2px solid #2e2f2f;
+    }
+
+    .info h1 {
+      font-size: 1.5rem;
+    }
+
+    .year {
+      color: #637083;
+    }
+
+    .rank {
+      font-size: 1.5rem;
+      color: yellowgreen;
+    }
+
+    .rank .change {
+      padding: 4px 6px;
+      color: green;
+      border: 2px solid #1F5724;
+      border-radius: 20px;
+    }
+
+    .image img {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      color: white;
+    }
+
+    .buttons a {
+      width: auto;
+      text-align: center;
+      padding: 10px;
+      text-decoration: none;
+      color: white;
+      background-color: #17202d;
+      border-radius: 20px;
+      border: 2px solid #182435;
+    }
+
+    .buttons a:hover {
+      background-color: rgb(86, 79, 79);
+      color: white;
+    }
+
+    .card-text {
+      color: grey;
+      font-size: 1rem;
+    }
+
+    .uniform-btn {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      text-align: center;
+      width: 250px;
+      transition: background-color 0.3s, color 0.3s;
+      margin-right: 1vw;
+    }
+
+    .uniform-btn:hover {
+      background-color: #475260;
+      color: white;
+    }
+
+    .watch-section {
+      background-color: #111924;
+      border: 2px solid #494a4b;
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .watch-option {
+      background-color: #111924;
+      color: white;
+      margin-bottom: 15px;
+      padding: 15px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .watch-option:hover {
+      background-color: #15263e;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header Card -->
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="card">
+          <div class="info p-3">
+            <h1 id="movie-title">Loading...</h1> <!-- Updated for dynamic title -->
+            <div class="ratings">
+              <span class="rank" id="movie-rank">--</span>
+              <span class="separator">-</span>
+              <span class="percent" id="movie-rating"><i class="bi bi-play-fill text-warning"></i> --</span>
+              <span class="separator">-</span>
+              <span class="imdb" id="movie-imdb"><span class="bg-warning text-black-50">IMDb</span> --</span>
+              <span class="separator">-</span>
+              <span class="rating" id="movie-certificate">UA</span>
+              <span class="separator">-</span>
+              <span class="duration" id="movie-duration">--</span>
+            </div>
+            <div class="buttons mt-3">
+              <a href="#" class="btn btn-outline-light w-100 mb-2">Where to Watch</a>
+              <a href="#" class="btn btn-outline-light w-100 mb-2">Watch for Free</a>
+              <a href="#" class="btn btn-outline-light w-100 mb-2">Synopsis</a>
+              <a href="#" class="btn btn-outline-light w-100 mb-2">Trailer</a>
+              <a href="#" class="btn btn-outline-light w-100 mb-2">Streaming Charts</a>
+              <a href="#" class="btn btn-outline-light w-100 mb-2">Similar titles</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="image">
+          <img id="about-movie-image" src="" alt="Loading..." style="width: 100%; height: auto;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Watch and About Section Row -->
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <div class="col-md-5 mb-3">
+        <div class="watch-section">
+          <h3 class="text-white">Watch Now</h3>
+          <div id="watch-options">
+            <!-- This will be populated dynamically -->
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7 mb-3">
+        <div class="card">
+          <div class="card-body d-flex flex-column align-items-center">
+            <img id="about-movie-poster" src="" class="img-fluid mb-3" alt="Loading..." style="width: 290px; height: 370px;">
+            <div class="flex-grow-1 text-center">
+              <h5 class="card-title">ABOUT THE MOVIE</h5>
+              <span class="rank"><i class="bi bi-play-fill fs-2"></i><span id="about-movie-rank">--</span></span>
+              <p class="card-text">Highest: <span class="text-white" id="highest-rank">--</span></p>
+              <p class="card-text">Top 10:  <span class="text-white" id="top-10-days">--</span></p>
+              <p class="card-text">Top 100:  <span class="text-white" id="top-100-days">--</span></p>
+              <p class="card-text">Top 1000:  <span class="text-white" id="top-1000-days">--</span></p>
+              <div class="d-flex justify-content-around mt-3">
+                <button id="like-btn" class="btn btn-outline-secondary uniform-btn">
+                  <i class="fas fa-thumbs-up"></i> <span id="like-count">Loading...</span>
+                </button>
+                <button id="dislike-btn" class="btn btn-outline-secondary uniform-btn">
+                  <i class="fas fa-thumbs-down"></i> <span id="dislike-count">Loading...</span>
+                </button>
+              </div>
+              
+              <div class="d-flex justify-content-around mt-3">
+                <button id="watchlist-btn" class="btn btn-outline-secondary uniform-btn">
+                  <i class="bi bi-bookmark"></i> <span id="watchlist-text">Loading...</span>
+                </button>
+                <button id="seen-btn" class="btn btn-outline-secondary uniform-btn">
+                  <i class="fa-solid fa-check"></i> <span id="seen-text">Loading...</span>
+                </button>
+              </div>
+              
+              <div class="d-flex justify-content-around mt-3">
+                <button id="sync-btn" class="btn btn-outline-secondary uniform-btn">
+                  <span id="sync-text">Loading...</span>
+                </button>
+              </div>     
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  
+  <!-- Adding JavaScript to fetch and populate API data -->
+  <script>
+   document.addEventListener('DOMContentLoaded', async () => {
+  const params = new URLSearchParams(window.location.search);
+  const movieId = params.get('movieId');
+
+  async function fetchMovieDetails() {
+    try {
+      const response = await fetch(`https://movies-api-puri.onrender.com/api/New-movies/${movieId}`);
+      const movieData = await response.json();
+
+      // Update the page with the movie data
+      displayMovieDetails(movieData);
+    } catch (error) {
+      console.error('Error fetching movie details:', error);
+    }
+  }
+
+  // Function to update the DOM with movie data
+  function displayMovieDetails(movieData) {
+    document.getElementById('movie-title').textContent = `${movieData.title} (${movieData.year})`;
+    document.getElementById('movie-rank').innerHTML = `0${movieData.rank}. <span class="change">${movieData.rankChange}</span>`;
+    document.getElementById('movie-rating').innerHTML = `<i class="bi bi-play-fill text-warning"></i> ${movieData.rating}%`;
+    document.getElementById('movie-imdb').innerHTML = `<span class="bg-warning text-black-50">IMDb</span> ${movieData.imdbRating} (${movieData.imdbVotes})`;
+    document.getElementById('movie-duration').textContent = `${movieData.duration}`;
+    document.getElementById('about-movie-image').src = movieData.backdropImage;
+    document.getElementById('about-movie-poster').src = movieData.posterImage;
+
+    document.getElementById('about-movie-rank').innerHTML = `0${movieData.rank}. <span class="change">${movieData.rankChange}</span>`;
+    document.getElementById('highest-rank').textContent = movieData.highestRank;
+    document.getElementById('top-10-days').textContent = movieData.top10Days;
+    document.getElementById('top-100-days').textContent = movieData.top100Days;
+    document.getElementById('top-1000-days').textContent = movieData.top1000Days;
+    document.getElementById('like-count').innerText = movieData.likes;
+    document.getElementById('dislike-count').innerText = movieData.dislikes;
+    document.getElementById('watchlist-text').innerText = movieData.watchlistText || 'Watchlist';
+    document.getElementById('seen-text').innerText = movieData.seenText || 'Seen';
+    document.getElementById('sync-text').innerText = movieData.syncText || 'Sign in to Sync Watchlist';
+
+    // Populate watch options dynamically
+    const watchOptions = document.getElementById('watch-options');
+    watchOptions.innerHTML = ''; // Clear previous options
+    movieData.watchOptions.forEach(option => {
+      const optionHTML = `
+        <div class="watch-option">
+          <i class="fas fa-tv"></i> ${option.platform} (${option.price})
+          <button class="btn btn-warning float-end"><i class="fas fa-play"></i>Watch</button>
+        </div>
+      `;
+      watchOptions.innerHTML += optionHTML;
+    });
+  }
+
+  // Fetch movie details on page load
+  if (movieId) {
+    fetchMovieDetails();
+  } else {
+    console.error('Movie ID not found in URL parameters.');
+  }
+});
+
+  </script>
+
+</body>
+</html>
